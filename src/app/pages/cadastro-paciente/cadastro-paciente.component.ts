@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastro-paciente',
@@ -35,7 +36,7 @@ export class CadastroPacienteComponent implements OnInit {
   pacienteForm: FormGroup;
 
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private cadastrarPacienteService: CadastrarPacienteService,
-    private notificationService: NotificationService) {
+    private notificationService: NotificationService, private http: HttpClient) {
     this.pacienteForm = this.fb.group({
       nome: ['', Validators.required, Validators.minLength(3), Validators.maxLength(65)],
       dataNascimento: ['', Validators.required],

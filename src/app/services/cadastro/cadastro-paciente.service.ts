@@ -8,7 +8,7 @@ import { PacienteModel } from '../../model/paciente.model';
 })
 export class CadastrarPacienteService {
   private apiUrl = '/api';
-  private _http = inject(HttpClient);
+  constructor(private _http: HttpClient) {}
 
   cadastrarPaciente(paciente: PacienteModel): Observable<PacienteModel> {
     return this._http.post<PacienteModel>(`${this.apiUrl}/Desafio/InserirPaciente`,paciente);
