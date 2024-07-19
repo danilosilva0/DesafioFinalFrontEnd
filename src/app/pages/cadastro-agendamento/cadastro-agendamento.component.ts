@@ -41,7 +41,7 @@ export class CadastroAgendamentoComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.pacientes$ = this.pacienteService.listarPacientes();
+    // this.pacientes$ = this.pacienteService.listarPacientes();
   }
 
   private initForm(): void {

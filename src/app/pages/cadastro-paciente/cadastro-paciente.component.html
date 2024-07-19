@@ -5,17 +5,12 @@
     <div class="box-form">
       <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
         <div class="form-floating">
-          <input
-            name="nome"
-            type="text"
-            class="form-control"
-            id="inputNome"
-            placeholder="Informe o nome"
-            formControlName="nome"
-          />
-          <label for="inputNome">Nome</label>
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Informe o nome" formControlName="nome">
+          </mat-form-field>
         </div>
-        <app-input-validation [control]="pacienteForm.get('nome')"></app-input-validation>
+        <!-- <app-input-validation [control]?="pacienteForm.get('nome')"></app-input-validation> -->
 
         <div class="form-floating">
           <mat-form-field appearance="fill">
@@ -25,7 +20,7 @@
             <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field>
         </div>
-        <app-input-validation [control]="pacienteForm.get('dataNascimento')"></app-input-validation>
+        <!-- <app-input-validation [control]?="pacienteForm.get('dataNascimento')"></app-input-validation> -->
 
         <div class="form-floating">
           <mat-form-field appearance="fill">
@@ -35,7 +30,7 @@
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
         </div>
-        <app-input-validation [control]="pacienteForm.get('diaAgendamento')"></app-input-validation>
+        <!-- <app-input-validation [control]?="pacienteForm.get('diaAgendamento')"></app-input-validation> -->
 
         <div class="form-floating">
           <mat-form-field appearance="fill">
@@ -43,7 +38,7 @@
             <input matInput type="time" formControlName="horaAgendamento" placeholder="Informe a hora do agendamento">
           </mat-form-field>
         </div>
-        <app-input-validation [control]="pacienteForm.get('horaAgendamento')"></app-input-validation>
+        <!-- <app-input-validation [control]?="pacienteForm.get('horaAgendamento')"></app-input-validation> -->
 
         <div class="terms">
           <input type="checkbox" formControlName="terms" required>

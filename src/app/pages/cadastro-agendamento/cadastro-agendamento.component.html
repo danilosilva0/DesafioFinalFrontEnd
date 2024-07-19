@@ -15,7 +15,7 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <app-input-validation [control]?="agendamentoForm.get('pacienteId')"></app-input-validation>
+          <!-- <app-input-validation [control]?="agendamentoForm.get('pacienteId')"></app-input-validation> -->
   
           <div class="form-floating">
             <mat-form-field appearance="fill">
@@ -25,7 +25,7 @@
               <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
           </div>
-          <app-input-validation [control]?="agendamentoForm.get('dataAgendamento')"></app-input-validation>
+          <!-- <app-input-validation [control]?="agendamentoForm.get('dataAgendamento')"></app-input-validation> -->
   
           <div class="form-floating">
             <mat-form-field appearance="fill">
@@ -33,7 +33,7 @@
               <input matInput type="time" formControlName="horaAgendamento" placeholder="Informe a hora do agendamento">
             </mat-form-field>
           </div>
-          <app-input-validation [control]?="agendamentoForm.get('horaAgendamento')"></app-input-validation>
+          <!-- <app-input-validation [control]?="agendamentoForm.get('horaAgendamento')"></app-input-validation> -->
   
           <div class="terms">
             <input type="checkbox" formControlName="terms" required>

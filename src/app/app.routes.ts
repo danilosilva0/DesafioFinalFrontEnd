@@ -4,6 +4,7 @@ import { CadastroAgendamentoComponent } from './pages/cadastro-agendamento/cadas
 import { ListarPacientesComponent } from './pages/listar-pacientes/listar-pacientes.component';
 import { ListarAgendamentosComponent } from './pages/listar-agendamentos/listar-agendamentos.component';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
@@ -22,11 +23,10 @@ export const routes: Routes = [
     path: 'listar-agendamentos',
     component: ListarAgendamentosComponent 
   }, 
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
+  { 
+    path: 'home',
+    component: HomeComponent 
+  }, 
   {
     path: '**',
     redirectTo: '/home' 

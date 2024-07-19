@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
@@ -46,16 +46,32 @@ export class CadastroPacienteComponent implements OnInit {
     });
   }
 
+  get nomeControl() {
+    return this.pacienteForm.get('nome') as AbstractControl;
+  }
+
+  get dataNascimentoControl() {
+    return this.pacienteForm.get('dataNascimento') as AbstractControl;
+  }
+
+  get diaAgendamentoControl() {
+    return this.pacienteForm.get('diaAgendamento') as AbstractControl;
+  }
+
+  get horaAgendamentoControl() {
+    return this.pacienteForm.get('horaAgendamento') as AbstractControl;
+  }
+
   ngOnInit(): void {}
 
   onSubmit() {
     if (this.pacienteForm.valid) {
       const pacienteValues = this.pacienteForm.value as PacienteModel;
-      this.cadastrarPacienteService.cadastrarPaciente(pacienteValues).subscribe(() => {
-        this.notificationService.showSuccess(
-          `Paciente ${this.pacienteForm.value.nome} cadastrado com sucesso`
-        );
-      });
+      // this.cadastrarPacienteService.cadastrarPaciente(pacienteValues).subscribe(() => {
+      //   this.notificationService.showSuccess(
+      //     `Paciente ${this.pacienteForm.value.nome} cadastrado com sucesso`
+      //   );
+      // });
       this.notificationService.showSuccess('Agendamento criado com sucesso!');
       this.pacienteForm.reset();
     } else {
