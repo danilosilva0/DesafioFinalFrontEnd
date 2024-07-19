@@ -1,0 +1,6 @@
+<div *ngIf="control.invalid && (control.dirty || control.touched)">
+    <div *ngIf="control.errors?.required">
+      Este campo é obrigatório.
+    </div>
+    <!-- Adicione outras mensagens de erro aqui conforme necessário -->
+</div>

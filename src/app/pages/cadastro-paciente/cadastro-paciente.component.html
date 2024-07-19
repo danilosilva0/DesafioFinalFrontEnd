@@ -1,0 +1,65 @@
+<div class="box-cadastro-form">
+  <div class="box-card">
+    <h2 class="box-card-title">Cadastro de Paciente</h2>
+
+    <div class="box-form">
+      <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+        <div class="form-floating">
+          <input
+            name="nome"
+            type="text"
+            class="form-control"
+            id="inputNome"
+            placeholder="Informe o nome"
+            formControlName="nome"
+          />
+          <label for="inputNome">Nome</label>
+        </div>
+        <app-input-validation [control]="pacienteForm.get('nome')"></app-input-validation>
+
+        <div class="form-floating">
+          <input
+            name="dataNascimento"
+            type="date"
+            class="form-control"
+            id="inputDataNascimento"
+            placeholder="Informe a data de nascimento"
+            formControlName="dataNascimento"
+          />
+          <label for="inputDataNascimento">Data de Nascimento</label>
+        </div>
+        <app-input-validation [control]="pacienteForm.get('dataNascimento')"></app-input-validation>
+
+        <div class="form-floating">
+          <input
+            name="diaAgendamento"
+            type="date"
+            class="form-control"
+            id="inputDiaAgendamento"
+            placeholder="Informe o dia do agendamento"
+            formControlName="diaAgendamento"
+          />
+          <label for="inputDiaAgendamento">Dia do Agendamento</label>
+        </div>
+        <app-input-validation [control]="pacienteForm.get('diaAgendamento')"></app-input-validation>
+
+        <div class="form-floating">
+          <input
+            name="horaAgendamento"
+            type="time"
+            class="form-control"
+            id="inputHoraAgendamento"
+            placeholder="Informe a hora do agendamento"
+            formControlName="horaAgendamento"
+          />
+          <label for="inputHoraAgendamento">Hora do Agendamento</label>
+        </div>
+        <app-input-validation [control]="pacienteForm.get('horaAgendamento')"></app-input-validation>
+
+        <button [disabled]="pacienteForm.invalid" class="w-100 btn btn-lg btn-primary button-color">
+          Agendar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
