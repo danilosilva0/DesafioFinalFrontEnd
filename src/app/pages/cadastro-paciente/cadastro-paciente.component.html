@@ -18,43 +18,37 @@
         <app-input-validation [control]="pacienteForm.get('nome')"></app-input-validation>
 
         <div class="form-floating">
-          <input
-            name="dataNascimento"
-            type="date"
-            class="form-control"
-            id="inputDataNascimento"
-            placeholder="Informe a data de nascimento"
-            formControlName="dataNascimento"
-          />
-          <label for="inputDataNascimento">Data de Nascimento</label>
+          <mat-form-field appearance="fill">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="dataNascimento" placeholder="Informe a data de nascimento">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
         </div>
         <app-input-validation [control]="pacienteForm.get('dataNascimento')"></app-input-validation>
 
         <div class="form-floating">
-          <input
-            name="diaAgendamento"
-            type="date"
-            class="form-control"
-            id="inputDiaAgendamento"
-            placeholder="Informe o dia do agendamento"
-            formControlName="diaAgendamento"
-          />
-          <label for="inputDiaAgendamento">Dia do Agendamento</label>
+          <mat-form-field appearance="fill">
+            <mat-label>Dia do Agendamento</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="diaAgendamento" placeholder="Informe o dia do agendamento">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
         </div>
         <app-input-validation [control]="pacienteForm.get('diaAgendamento')"></app-input-validation>
 
         <div class="form-floating">
-          <input
-            name="horaAgendamento"
-            type="time"
-            class="form-control"
-            id="inputHoraAgendamento"
-            placeholder="Informe a hora do agendamento"
-            formControlName="horaAgendamento"
-          />
-          <label for="inputHoraAgendamento">Hora do Agendamento</label>
+          <mat-form-field appearance="fill">
+            <mat-label>Hora do Agendamento</mat-label>
+            <input matInput type="time" formControlName="horaAgendamento" placeholder="Informe a hora do agendamento">
+          </mat-form-field>
         </div>
         <app-input-validation [control]="pacienteForm.get('horaAgendamento')"></app-input-validation>
+
+        <div class="terms">
+          <input type="checkbox" formControlName="terms" required>
+          <label>Concordo com os Termos & Condições desta aplicação</label>
+        </div>
 
         <button [disabled]="pacienteForm.invalid" class="w-100 btn btn-lg btn-primary button-color">
           Agendar

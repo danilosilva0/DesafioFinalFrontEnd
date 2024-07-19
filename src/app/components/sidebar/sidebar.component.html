@@ -1,1 +1,14 @@
-<p>sidebar works!</p>
+<div class="sidebar" [ngStyle]="{width: sidebarWidth}">
+    <br><br><br><br><br>
+    <span class="collapse-icon" [class.rotate-180]="collapsed" (click)="toggleSidebar()">
+      <div id="outer-icon"><mat-icon>chevron_right</mat-icon></div>
+    </span>
+
+    <div id="esconderlinks" *ngIf="esconder()">
+      <a routerLink="/" class="links" id="HOME"><mat-icon>home</mat-icon>Home</a>
+      <a routerLink="/cadastropessoa" class="links"><mat-icon>assignment_ind</mat-icon>Cadastro de Paciente</a>
+      <a routerLink="/cadastrocidade" class="links"><mat-icon>note_add</mat-icon>Cadastro de Agendamento</a>
+      <a routerLink="/listapessoas" class="links"><mat-icon>face</mat-icon>Lista de Pacientes</a>
+      <a routerLink="/listacidades" class="links"><mat-icon>vertical_split</mat-icon>Lista de Agendamentos</a>
+    </div>
+  </div>

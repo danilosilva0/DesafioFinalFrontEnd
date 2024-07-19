@@ -8,11 +8,26 @@ import { NgIf } from '@angular/common';
 import { CadastrarPacienteService } from '../../services/cadastro/cadastro-paciente.service';
 import { NotificationService } from '../../services/notification/notification.service';
 import { PacienteModel } from '../../model/paciente.model';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-cadastro-paciente',
   standalone: true,
-  imports: [MatSnackBarModule, ReactiveFormsModule, InputValidationComponent, NgIf],
+  imports: [
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    InputValidationComponent,
+    NgIf,
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+  ],
   templateUrl: './cadastro-paciente.component.html',
   styleUrls: ['./cadastro-paciente.component.css']
 })
@@ -25,7 +40,8 @@ export class CadastroPacienteComponent implements OnInit {
       nome: ['', Validators.required, Validators.minLength(3), Validators.maxLength(65)],
       dataNascimento: ['', Validators.required],
       diaAgendamento: ['', Validators.required],
-      horaAgendamento: ['', Validators.required]
+      horaAgendamento: ['', Validators.required],
+      terms: [false, Validators.requiredTrue]
     });
   }
 

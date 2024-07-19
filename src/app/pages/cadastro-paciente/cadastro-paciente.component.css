@@ -1,0 +1,92 @@
+#container1 {
+    display: flex;
+    margin: 0px 50px 0px 160px;
+    position: absolute;
+    text-align: left;
+    width: 600px;
+    color: white;
+    font-size: 4rem;
+    font-family: monospace;
+  }
+  
+#container2 {
+  display: flex;
+  margin: 0px 50px 0px 80px;
+}
+
+form {
+  border: 5px solid #34db66;
+  max-width: 420px;
+  margin-left: 57%;
+  background: white;
+  text-align: left;
+  padding: 40px;
+  border-radius: 30px;
+  margin-top: 50px;
+}
+
+label {
+  color: #aaa;
+  display: inline-block;
+  margin: 25px 0 15px;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+input,
+select {
+  display: block;
+  padding: 10px 6px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: 16px;
+  margin: 0 10px 0 0;
+  position: relative;
+  top: 2px;
+}
+
+.box-cadastro-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box-card-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.box-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-floating {
+  margin-bottom: 16px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+button.button-color {
+  background-color: #34db66;
+  color: #fff;
+}
