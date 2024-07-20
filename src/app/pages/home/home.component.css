@@ -1,11 +1,11 @@
 :host {
-    display: block;
-    background-color: #ace7df;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
+  display: block;
+  background-color: #ace7df;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
-  
+
 .texto {
   width: 90%;
   height: auto;
@@ -27,11 +27,11 @@
 }
 
 .titulo {
-  top: 20%
+  top: 20%;
 }
 
 .titulo1 {
-  top: 30%
+  top: 30%;
 }
 
 .subtitle {
@@ -41,8 +41,8 @@
   left: 29%;
 }
 
-#image{
-  background-image: url('../assets/PSDS.png');
+#image {
+  background-image: url('../../../assets/PSDS.png');
   background-size: 200px 200px;
   background-position: center;
   background-repeat: no-repeat;

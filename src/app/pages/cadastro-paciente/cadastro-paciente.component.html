@@ -22,24 +22,6 @@
         </div>
         <!-- <app-input-validation [control]?="pacienteForm.get('dataNascimento')"></app-input-validation> -->
 
-        <div class="form-floating">
-          <mat-form-field appearance="fill">
-            <mat-label>Dia do Agendamento</mat-label>
-            <input matInput [matDatepicker]="picker2" formControlName="diaAgendamento" placeholder="Informe o dia do agendamento">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <!-- <app-input-validation [control]?="pacienteForm.get('diaAgendamento')"></app-input-validation> -->
-
-        <div class="form-floating">
-          <mat-form-field appearance="fill">
-            <mat-label>Hora do Agendamento</mat-label>
-            <input matInput type="time" formControlName="horaAgendamento" placeholder="Informe a hora do agendamento">
-          </mat-form-field>
-        </div>
-        <!-- <app-input-validation [control]?="pacienteForm.get('horaAgendamento')"></app-input-validation> -->
-
         <div class="terms">
           <input type="checkbox" formControlName="terms" required>
           <label>Concordo com os Termos & Condições desta aplicação</label>

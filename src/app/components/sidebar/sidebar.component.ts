@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class SidebarComponent {
   collapsed = true;
-  SIDEBAR_WIDTH = 140;
+  SIDEBAR_WIDTH = 158;
   SIDEBAR_WIDTH_COLLAPSED = 0;
 
   constructor(private sidebarStateService: SidebarStateService) {

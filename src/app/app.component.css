@@ -43,13 +43,12 @@
 
 #image{
   background-image: url('../assets/PSDS.png');
-  background-size: 200px 200px;
+  background-size: 60px 60px;
   background-position: center;
   background-repeat: no-repeat;
-  width: 300px;
+  width: 70px;
   height: 50%;
-  right: 40%;
-  top: 35%;
+  top: 70%;
   text-align: center;
   position: absolute;
 }

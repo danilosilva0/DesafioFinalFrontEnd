@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { InputValidationComponent } from '../../components/input-validation/input-validation.component';
 import { NgIf } from '@angular/common';
-import { CadastrarPacienteService } from '../../services/cadastro/cadastro-paciente.service';
+import { PacienteService } from '../../services/cadastro/cadastro-paciente.service';
 import { NotificationService } from '../../services/notification/notification.service';
 import { PacienteModel } from '../../model/paciente.model';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,12 +13,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClient } from '@angular/common/http';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-cadastro-paciente',
   standalone: true,
   imports: [
-    MatSnackBarModule,
     ReactiveFormsModule,
     InputValidationComponent,
     NgIf,
@@ -32,48 +32,71 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './cadastro-paciente.component.html',
   styleUrls: ['./cadastro-paciente.component.css']
 })
-export class CadastroPacienteComponent implements OnInit {
+export class CadastroPacienteComponent implements OnInit, OnDestroy {
   pacienteForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private cadastrarPacienteService: CadastrarPacienteService,
-    private notificationService: NotificationService, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar, 
+    private cadastrarPacienteService: PacienteService,
+    private notificationService: NotificationService, 
+    private http: HttpClient,
+    private storageService: StorageService
+  ) 
+    {
     this.pacienteForm = this.fb.group({
-      nome: ['', Validators.required, Validators.minLength(3), Validators.maxLength(65)],
+      nome: ['', Validators.required],
       dataNascimento: ['', Validators.required],
-      diaAgendamento: ['', Validators.required],
-      horaAgendamento: ['', Validators.required],
-      terms: [false, Validators.requiredTrue]
+      terms: ['', Validators.requiredTrue]
     });
   }
 
-  get nomeControl() {
-    return this.pacienteForm.get('nome') as AbstractControl;
+  ngOnInit(): void {
+    if (typeof window !== 'undefined') {
+      this.loadFromLocalStorage();
+      this.pacienteForm.valueChanges.subscribe(() => {
+        this.saveToLocalStorage();
+      });
+    } 
   }
 
-  get dataNascimentoControl() {
-    return this.pacienteForm.get('dataNascimento') as AbstractControl;
+  ngOnDestroy(): void {
+    if (typeof window !== 'undefined') {
+      this.saveToLocalStorage();
+    }
   }
 
-  get diaAgendamentoControl() {
-    return this.pacienteForm.get('diaAgendamento') as AbstractControl;
+  private saveToLocalStorage() {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('pacienteForm', JSON.stringify(this.pacienteForm.value));
+    }
   }
 
-  get horaAgendamentoControl() {
-    return this.pacienteForm.get('horaAgendamento') as AbstractControl;
+  private loadFromLocalStorage() {
+    if (typeof window !== 'undefined') {
+      const dadosSalvos = localStorage.getItem('pacienteForm');
+      if (dadosSalvos) {
+        this.pacienteForm.setValue(JSON.parse(dadosSalvos));
+      }
+    }
   }
 
-  ngOnInit(): void {}
+  private removeFromLocalStorage() {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('pacienteForm');
+    }
+  }
 
   onSubmit() {
+    console.log(this.pacienteForm.valid);
+    console.log(this.pacienteForm);
     if (this.pacienteForm.valid) {
-      const pacienteValues = this.pacienteForm.value as PacienteModel;
-      // this.cadastrarPacienteService.cadastrarPaciente(pacienteValues).subscribe(() => {
-      //   this.notificationService.showSuccess(
-      //     `Paciente ${this.pacienteForm.value.nome} cadastrado com sucesso`
-      //   );
-      // });
-      this.notificationService.showSuccess('Agendamento criado com sucesso!');
+      const paciente = this.pacienteForm.value as PacienteModel;
+      this.cadastrarPacienteService.cadastrarPaciente(paciente).subscribe(() => {
+        this.notificationService.showSuccess(`Paciente ${this.pacienteForm.value.nome} cadastrado com sucesso`);
+      });
       this.pacienteForm.reset();
+      this.removeFromLocalStorage();
     } else {
       this.notificationService.showWarning('Por favor, preencha todos os campos obrigatórios.');
     }

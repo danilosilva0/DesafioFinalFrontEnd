@@ -30,9 +30,14 @@
           <div class="form-floating">
             <mat-form-field appearance="fill">
               <mat-label>Hora do Agendamento</mat-label>
-              <input matInput type="time" formControlName="horaAgendamento" placeholder="Informe a hora do agendamento">
+              <mat-select formControlName="horaAgendamento" placeholder="Selecione a hora do agendamento">
+                <mat-option *ngFor="let hora of horasDisponiveis" [value]="hora">
+                  {{ hora }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
+          
           <!-- <app-input-validation [control]?="agendamentoForm.get('horaAgendamento')"></app-input-validation> -->
   
           <div class="terms">

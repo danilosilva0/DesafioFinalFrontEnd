@@ -11,8 +11,8 @@
   text-decoration: none;
 }
 .sidebar {
-  color: #96d7e2;
-  background-color: #96d7e2;
+  color: #1fccaf;
+  background-color: #1fccaf;
   border: 2px solid #ffffff;
   float: left;
   z-index: 1;
@@ -37,12 +37,13 @@
 }
 .links {
   font-size: 1em;
-  padding-left: 7px;
+  padding-left: 12px;
   text-decoration: none;
   color: #601fda;
   width: 100%;
   padding-top: 20px;
   display: flex;
+  left: 5%;
 }
 
 .image{
@@ -53,8 +54,19 @@
 }
 
 #outer-icon{
-width: 30px; /* Largura do quadrado */
-height: 30px; /* Altura do quadrado */
-background-color: rgb(27, 106, 209); /* Cor de fundo preta */
+width: 30px;
+height: 30px;
+background-color: rgb(27, 106, 209);
 border-radius: 30%;
+}
+
+#notificacoes {
+  font-size: 1em;
+  padding-left: 12px;
+  text-decoration: none;
+  color: #601fda;
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  left: 5%;
 }
