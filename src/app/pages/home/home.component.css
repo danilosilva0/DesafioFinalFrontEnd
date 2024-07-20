@@ -1,11 +1,11 @@
 :host {
-    display: block;
-    background-color: #ace7df;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
+  display: block;
+  background-color: #ace7df;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
-  
+
 .texto {
   width: 90%;
   height: auto;
@@ -27,11 +27,11 @@
 }
 
 .titulo {
-  top: 20%
+  top: 20%;
 }
 
 .titulo1 {
-  top: 30%
+  top: 30%;
 }
 
 .subtitle {
@@ -41,14 +41,15 @@
   left: 29%;
 }
 
-#image{
-  background-image: url('../assets/PSDS.png');
-  background-size: 60px 60px;
+#image {
+  background-image: url('../../../assets/PSDS.png');
+  background-size: 200px 200px;
   background-position: center;
   background-repeat: no-repeat;
-  width: 70px;
+  width: 300px;
   height: 50%;
-  top: 70%;
+  right: 40%;
+  top: 35%;
   text-align: center;
   position: absolute;
 }

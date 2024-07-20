@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1fccaf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .box-listagem {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 20px auto;
+  }
+  
+  .box-card {
+    background: #1fccaf;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .box-card-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: white;
+    text-align: center;
+  }
+  
+  .box-table {
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th.mat-header-cell {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  td.mat-cell {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr.mat-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,36 @@
+<div class="box-cadastro-form">
+  <div class="box-card">
+    <h2 class="box-card-title">Cadastro de Paciente</h2>
+
+    <div class="box-form">
+      <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+        <div class="form-floating">
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Informe o nome" formControlName="nome">
+          </mat-form-field>
+        </div>
+        <!-- <app-input-validation [control]?="pacienteForm.get('nome')"></app-input-validation> -->
+
+        <div class="form-floating">
+          <mat-form-field appearance="fill">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="dataNascimento" placeholder="Informe a data de nascimento">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <!-- <app-input-validation [control]?="pacienteForm.get('dataNascimento')"></app-input-validation> -->
+
+        <div class="terms">
+          <input type="checkbox" formControlName="terms" required>
+          <label>Concordo com os Termos & Condições desta aplicação</label>
+        </div>
+
+        <button [disabled]="pacienteForm.invalid" class="w-100 btn btn-lg btn-primary button-color">
+          Agendar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

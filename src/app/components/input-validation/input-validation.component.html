@@ -1,0 +1,8 @@
+<div *ngIf="control?.invalid && (control?.dirty || control?.touched)">
+    <div *ngIf="control!.errors?.['required']">
+      Este campo é obrigatório.
+    </div>
+    <div *ngIf="control?.errors?.['minlength']">
+      O campo precisa ter um mínimo de caracteres.
+    </div>
+</div>

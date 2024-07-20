@@ -1,0 +1,55 @@
+<div class="box-cadastro-form">
+    <div class="box-card">
+      <h2 class="box-card-title">Cadastro de Agendamento</h2>
+  
+      <div class="box-form">
+        <form [formGroup]="agendamentoForm" (ngSubmit)="onSubmit()">
+  
+          <div class="form-floating">
+            <mat-form-field appearance="fill">
+              <mat-label>Paciente</mat-label>
+              <mat-select formControlName="pacienteId" placeholder="Selecione um paciente">
+                <mat-option *ngFor="let paciente of (pacientes$ | async)" [value]="paciente.id">
+                  {{ paciente.nome }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <!-- <app-input-validation [control]?="agendamentoForm.get('pacienteId')"></app-input-validation> -->
+  
+          <div class="form-floating">
+            <mat-form-field appearance="fill">
+              <mat-label>Data do Agendamento</mat-label>
+              <input matInput [matDatepicker]="picker1" formControlName="dataAgendamento" placeholder="Informe a data do agendamento">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <!-- <app-input-validation [control]?="agendamentoForm.get('dataAgendamento')"></app-input-validation> -->
+  
+          <div class="form-floating">
+            <mat-form-field appearance="fill">
+              <mat-label>Hora do Agendamento</mat-label>
+              <mat-select formControlName="horaAgendamento" placeholder="Selecione a hora do agendamento">
+                <mat-option *ngFor="let hora of horasDisponiveis" [value]="hora">
+                  {{ hora }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          
+          <!-- <app-input-validation [control]?="agendamentoForm.get('horaAgendamento')"></app-input-validation> -->
+  
+          <div class="terms">
+            <input type="checkbox" formControlName="terms" required>
+            <label>Concordo com os Termos & Condições desta aplicação</label>
+          </div>
+  
+          <button [disabled]="agendamentoForm.invalid" class="w-100 btn btn-lg btn-primary button-color">
+            Agendar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
